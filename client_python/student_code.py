@@ -19,8 +19,9 @@ PORT = 6666
 HOST = '127.0.0.1'
 pygame.init()
 pygame.mixer.init()
-pygame.mixer.music.load('Users/dvir_/.vscode/OOP_2021/OOP--Ex4/pokemonSong.mp3')
-pygame.mixer.play(-1, 0.0)
+print(os.path.exists("pokemonSong.mp3"))
+pygame.mixer.music.load("pokemonSong.mp3")
+# pygame.mixer.play(-1, 0.0)
 
 screen = display.set_mode((WIDTH, HEIGHT), depth=32, flags=RESIZABLE)
 clock = pygame.time.Clock()
