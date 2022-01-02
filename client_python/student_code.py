@@ -9,7 +9,11 @@ import json
 from pygame import gfxdraw
 import pygame
 from pygame import *
-import os
+
+import subprocess
+import sys
+# run the tester with the new output
+subprocess.Popen(['powershell.exe', f'java -jar Ex4_Server_v0.0.jar {sys.argv[1]}'])
 # init pygame
 WIDTH, HEIGHT = 1080, 720
 
@@ -18,10 +22,6 @@ PORT = 6666
 # server host (default localhost 127.0.0.1)
 HOST = '127.0.0.1'
 pygame.init()
-pygame.mixer.init()
-print(os.path.exists("pokemonSong.mp3"))
-pygame.mixer.music.load("pokemonSong.mp3")
-# pygame.mixer.play(-1, 0.0)
 
 screen = display.set_mode((WIDTH, HEIGHT), depth=32, flags=RESIZABLE)
 clock = pygame.time.Clock()
@@ -40,14 +40,13 @@ graph_json = client.get_graph()
 FONT = pygame.font.SysFont('Arial', 20, bold=True)
 # load the json string into SimpleNamespace Object
 
-graph = json.loads(
-    graph_json, object_hook=lambda json_dict: SimpleNamespace(**json_dict))
+graph = json.loads(graph_json, object_hook=lambda json_dict: SimpleNamespace(**json_dict))
 
 for n in graph.Nodes:
     x, y, _ = n.pos.split(',')
     n.pos = SimpleNamespace(x=float(x), y=float(y))
 
- # get data proportions
+# get data proportions
 min_x = min(list(graph.Nodes), key=lambda n: n.pos.x).pos.x
 min_y = min(list(graph.Nodes), key=lambda n: n.pos.y).pos.y
 max_x = max(list(graph.Nodes), key=lambda n: n.pos.x).pos.x
