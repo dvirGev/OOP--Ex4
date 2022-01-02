@@ -21,6 +21,8 @@ class pokemon:
         for n in xyz:
             print(n)
             self.pos.append(float(n))
+        self.src = None
+        self.dest = None
     
 
         

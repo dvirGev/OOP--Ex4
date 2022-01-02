@@ -38,12 +38,13 @@ class gameAlgo():
             for edge in graph_obj["Edges"]:
                 self.graph.add_edge(int(edge["src"]), int(edge["dest"]), float(edge["w"]))
     
-     def pokemon_src_dest(self, pok: pokemon) -> list:
+    def pokemon_src_dest(self, pok: pokemon) -> None:
         for node1 in self.graph.nodes:
             for node2 in self.graph.nodes:
                 if self.distanceNodes(self.graph.nodes[node1], self.graph.nodes[node2]) == (self.distancePokNode(self.graph.nodes[node1], pok) + self.distancePokNode(self.graph.nodes[node2], pok)):
-                        return (node1, node2)
-        return None
+                        pok.src = node1
+                        pok.dest = node2
+
 
     def distanceNodes(self, node1: Node, node2: Node) -> float:
         dis = math.sqrt(pow(node1.location[0] - node2.location[0], 2) + pow(node1.location[1] - node2.location[1], 2))
