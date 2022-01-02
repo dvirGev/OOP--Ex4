@@ -20,7 +20,6 @@ class gameAlgo():
 
     def pokemon_src_dest(self, pok: pokemon) -> list:
         for node1 in self.graph.nodes:
-
             for node2 in self.graph.nodes:
                 if self.distanceNodes(self.graph.nodes[node1], self.graph.nodes[node2]) == (self.distancePokNode(self.graph.nodes[node1], pok) + self.distancePokNode(self.graph.nodes[node2], pok)):
                         return (node1, node2)
