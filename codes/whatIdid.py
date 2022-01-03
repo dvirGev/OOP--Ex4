@@ -1,3 +1,5 @@
+from pygame import mixer
+
 """
 @author AchiyaZigi
 OOP - Ex4

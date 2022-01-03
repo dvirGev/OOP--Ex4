@@ -10,6 +10,7 @@ from pygame import gfxdraw
 import pygame
 from pygame import *
 
+
 import subprocess
 import sys
 # run the tester with the new output
@@ -29,6 +30,7 @@ pygame.font.init()
 
 client = Client()
 client.start_connection(HOST, PORT)
+
 
 pokemons = client.get_pokemons()
 pokemons_obj = json.loads(pokemons, object_hook=lambda d: SimpleNamespace(**d))

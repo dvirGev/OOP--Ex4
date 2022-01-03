@@ -7,7 +7,7 @@ from GUI import GUI
 from classes import agent
 ###### python codes./Ex4.py
 """sys.argv[1]"""
-subprocess.Popen(['powershell.exe', f'java -jar Ex4_Server_v0.0.jar {7}'])
+subprocess.Popen(['powershell.exe', f'java -jar Ex4_Server_v0.0.jar {0}'])
 # default port
 PORT = 6666
 # server host (default localhost 127.0.0.1)

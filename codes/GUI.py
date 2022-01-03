@@ -107,6 +107,7 @@ class GUI():
     def drawPokemons(self):
         pokemons = self.gameAlgo.pokemons
         for p in pokemons:
+            # print(p.__dict__)
             x = self.my_scale(p.pos[0], x=True)
             y = self.my_scale(p.pos[1], y=True)
             
