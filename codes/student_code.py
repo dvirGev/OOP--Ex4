@@ -13,7 +13,7 @@ from pygame import *
 import subprocess
 import sys
 # run the tester with the new output
-subprocess.Popen(['powershell.exe', f'java -jar Ex4_Server_v0.0.jar {sys.argv[1]}'])
+subprocess.Popen(['powershell.exe', f'java -jar Ex4_Server_v0.0.jar {0}'])
 # init pygame
 WIDTH, HEIGHT = 1080, 720
 

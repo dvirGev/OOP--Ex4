@@ -3,6 +3,7 @@ import sys
 
 from GameAlgo import gameAlgo
 from client import Client
+from GUI import GUI
 ###### python codes./Ex4.py
 """sys.argv[1]"""
 subprocess.Popen(['powershell.exe', f'java -jar Ex4_Server_v0.0.jar {0}'])
@@ -11,9 +12,15 @@ PORT = 6666
 # server host (default localhost 127.0.0.1)
 HOST = '127.0.0.1'
 client = Client()
-client.start_connection(HOST, PORT)
-client.add_agent("{\"id\":0}")
 game = gameAlgo()
-game.update(client.get_pokemons(), client.get_agents(), client.get_graph())
 
-print(game.__dict__)
+
+client.start_connection(HOST, PORT)
+
+client.add_agent("{\"id\":0}")
+
+game.update(client.get_pokemons(), client.get_agents(), client.get_graph())
+gui = GUI(game)
+while True:
+    gui.draw()
+
