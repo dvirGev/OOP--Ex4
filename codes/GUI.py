@@ -1,6 +1,7 @@
 from os import system
 import pygame
 from pygame import *
+from pygame.time import Clock
 
 from GameAlgo import gameAlgo
 
@@ -9,8 +10,9 @@ radius = 25
 background = 'GUIData/background.png'
 song = 'GUIData/song.wav'
 node = 'GUIData/node.png'
-pikachu = 'GUIData/pikachu.png'
 agent = 'GUIData/agent.gif'
+pikachu = 'GUIData/pikachu.png'
+charmander = 'GUIData/charmander.png'
 pygame.init()
 mixer.init()
 font.init()
@@ -26,7 +28,9 @@ class GUI():
         self.agent_image = pygame.transform.scale(self.agent_image, (40, 40))
         pikachu_image = image.load(pikachu)
         pikachu_image = pygame.transform.scale(pikachu_image, (35, 35))
-        self.pokemos_image = [pikachu_image]
+        charmander_image = image.load(charmander)
+        charmander_image = pygame.transform.scale(charmander_image, (35, 35))
+        self.pokemos_image = [pikachu_image, charmander_image]
         mixer.music.load(song)
         mixer.music.play(-1) # If the loops is -1 then the music will repeat indefinitely.
         mixer.music.play()
@@ -68,6 +72,8 @@ class GUI():
         self.drawNode()
         self.drawPokemons()
         self.drawAgents()
+        # refresh rate
+        #Clock.tick(60)
         display.update()
         return True
     
@@ -101,17 +107,16 @@ class GUI():
     def drawPokemons(self):
         pokemons = self.gameAlgo.pokemons
         for p in pokemons:
-            print(p.__dict__)
             x = self.my_scale(p.pos[0], x=True)
             y = self.my_scale(p.pos[1], y=True)
             
-            self.screen.blit(self.pokemos_image[0], (x, y))
+            self.screen.blit(self.pokemos_image[1], (x, y))
     def drawAgents(self):
         agents = self.gameAlgo.agents
         for agent in agents:
-            x = self.my_scale(agent.pos[0], x=True)
-            y = self.my_scale(agent.pos[1], y=True)
+            x = self.my_scale(agent.pos[0], x=True) - radius/2
+            y = self.my_scale(agent.pos[1], y=True) - radius/2  
             
-            self.screen.blit(self.agent_image, (x, y))        
+            self.screen.blit(self.agent_image, (x, y))      
     
     
