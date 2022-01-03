@@ -12,12 +12,6 @@ class gameAlgo():
         #self.graphAlgo = GraphAlgo()
         
     def update(self, pokemons = None, agents = None, graph = None) ->None:
-        if pokemons != None:
-            self.pokemons = []
-            pokemons_obj = json.loads(pokemons)
-            for poke in pokemons_obj['Pokemons']:
-                self.pokemons.append(pokemon(poke['Pokemon']))
-        
         if agents != None:
             self.agents = []
             agents_obj = json.loads(agents)
@@ -37,6 +31,14 @@ class gameAlgo():
                     self.graph.add_node(id)
             for edge in graph_obj["Edges"]:
                 self.graph.add_edge(int(edge["src"]), int(edge["dest"]), float(edge["w"]))
+        
+        if pokemons != None:
+            self.pokemons = []
+            pokemons_obj = json.loads(pokemons)
+            for poke in pokemons_obj['Pokemons']:
+                p = pokemon(poke['Pokemon'])
+                self.pokemon_src_dest(p)
+                self.pokemons.append(p)
     
     def pokemon_src_dest(self, pok: pokemon) -> None:
         for node1 in self.graph.nodes:
@@ -44,12 +46,12 @@ class gameAlgo():
                 if self.distanceNodes(self.graph.nodes[node1], self.graph.nodes[node2]) == (self.distancePokNode(self.graph.nodes[node1], pok) + self.distancePokNode(self.graph.nodes[node2], pok)):
                         pok.src = node1
                         pok.dest = node2
-
-
+ 
+ 
     def distanceNodes(self, node1: Node, node2: Node) -> float:
         dis = math.sqrt(pow(node1.location[0] - node2.location[0], 2) + pow(node1.location[1] - node2.location[1], 2))
         return dis
-
+ 
     def distancePokNode(self, node1: Node, pok: pokemon) -> float:
         dis = math.sqrt(pow(node1.location[0] - pok.pos[0], 2) + pow(node1.location[1] - pok.pos[1], 2))
         return dis

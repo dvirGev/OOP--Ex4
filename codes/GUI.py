@@ -23,7 +23,7 @@ class GUI():
         self.node_image = image.load(node)
         self.node_image = pygame.transform.scale(self.node_image, (radius, radius))
         self.agent_image = image.load(agent)
-        self.agent_image = pygame.transform.scale(self.agent_image, (radius, radius))
+        self.agent_image = pygame.transform.scale(self.agent_image, (40, 40))
         pikachu_image = image.load(pikachu)
         pikachu_image = pygame.transform.scale(pikachu_image, (35, 35))
         self.pokemos_image = [pikachu_image]
@@ -112,6 +112,6 @@ class GUI():
             x = self.my_scale(agent.pos[0], x=True)
             y = self.my_scale(agent.pos[1], y=True)
             
-            self.screen.blit(self.pokemos_image[0], (x, y))        
+            self.screen.blit(self.agent_image, (x, y))        
     
     
