@@ -113,7 +113,7 @@ class GUI():
             
             self.screen.blit(self.pokemos_image[1], (x, y))
     def drawAgents(self):
-        agents = self.gameAlgo.agents
+        agents = self.gameAlgo.agents.values()
         for agent in agents:
             x = self.my_scale(agent.pos[0], x=True) - radius/2
             y = self.my_scale(agent.pos[1], y=True) - radius/2  

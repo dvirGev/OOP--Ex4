@@ -11,6 +11,15 @@ class agent:
             self.pos.append(float(n))
         
         self.stations = []
+    def update(self, data: dict) -> None:
+        self.value = float(data['value'])
+        self.src = int(data['src'])
+        self.dest = int(data['dest'])
+        self.speed = float(data['speed'])
+        xyz = str(data['pos']).split(',')
+        self.pos = []
+        for n in xyz:
+            self.pos.append(float(n))
 
 class pokemon:
     def __init__(self, data:dict) -> None:
@@ -19,10 +28,12 @@ class pokemon:
         xyz = str(data['pos']).split(',')
         self.pos = []
         for n in xyz:
-            print(n)
             self.pos.append(float(n))
         self.src = None
         self.dest = None
+        self.pokemonType = None
+        self.agent = None
+    
     
 
         

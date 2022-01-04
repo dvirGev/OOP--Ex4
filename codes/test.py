@@ -1,7 +1,3 @@
-import pygame
-import os
-print()
-pygame.init()
-pygame.mixer.init()
-pygame.mixer.music.load(r'../shaked.wav')
-pygame.mixer.music.play(-1)
+l1 = [1,2,3]
+l2 = [1,2,3]
+print(l1 == l2)
