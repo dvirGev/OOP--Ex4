@@ -14,7 +14,11 @@ Our mission is to maximize the overall sum of weights of the “grabbed” pokem
 
 
 ##classes
+
+
 ##Gui
+
+
 ##Algorithms
 ##UML
 ##Algorithms Results
