@@ -10,7 +10,8 @@ class agent:
         for n in xyz:
             self.pos.append(float(n))
         
-        self.stations = []
+        self.nextStations = None
+        self.time = float('inf')
     def update(self, data: dict) -> None:
         self.value = float(data['value'])
         self.src = int(data['src'])
@@ -20,7 +21,7 @@ class agent:
         self.pos = []
         for n in xyz:
             self.pos.append(float(n))
-
+        self.time = float('inf')
 class pokemon:
     def __init__(self, data:dict) -> None:
         self.value = data['value']
@@ -31,7 +32,6 @@ class pokemon:
             self.pos.append(float(n))
         self.src = None
         self.dest = None
-        self.pokemonType = None
         self.agent = None
     
     

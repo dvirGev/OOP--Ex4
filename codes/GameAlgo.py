@@ -103,44 +103,39 @@ class gameAlgo():
             pow(node1.location[0] - pok.pos[0], 2) + pow(node1.location[1] - pok.pos[1], 2))
         return dis
 
-    def candidateAgent(self, p: pokemon) -> list:
-        temp = []
-        for a in self.agents.values():
-            if len(a.stations) == 0:
-                temp.append(a.id)
-        if len(temp) == 0:
-            temp.append(self.counter % len(self.agents))
-            self.counter += 1
-        return temp
-
     def calc(self, a: agent, p: pokemon):
-        print(p.src, p.dest)
-        if len(a.stations):
-            distance = self.shortest_path(a.stations[-1], p.src)
-        else:
-            distance = self.shortest_path(a.src, p.src)
+        distance = self.shortest_path(a.src, p.src)
         time = (distance[0] / a.speed)
         return (time, distance)
 
-    def allocateAgen(self, p: pokemon) -> None:
-        candidAgents = self.candidateAgent(p)
-        relevant = float('inf')
-        candid = path = None
-        for a in candidAgents:
-            cal = self.calc(self.agents[a], p)
-            if cal[0] < relevant:
-                candid = self.agents[a].id
-                path = cal[1][1]
-        path.pop(0)
-        self.agents[candid].stations += path
-        self.agents[candid].stations.append(p.dest)
-        p.agent = candid
+    def allocateAgen(self, a: agent, prity:int) -> None:
+        ans = (float('inf'), None)
+        choisePokemon = None
+        for p in self.pokemons:
+            cal = self.calc(a,p)
+            if cal[0] < ans[0]:
+                ans = cal
+                choisePokemon = p
+        if choisePokemon.agent != None:
+            enemy = choisePokemon.agent
+            if ans[0] < enemy.time:
+                choisePokemon.agent = a
+                a.time = ans[0]
+                stations = ans[1]
+                if len(stations) > 2:
+                    a.nextStations = stations[2]
+                else:
+                    a.nextStations = stations[1]
+                self.allocateAgen(enemy)
+            else:
+                
+        
+            
 
 
     def allocateAllpokemon(self) -> None:
-        for p in self.pokemons:
-            if p.agent == None:
-                self.allocateAgen(p)
+        for a in self.agents.values():
+            self.allocateAgen(a)
 
     def CMD(self, client: Client) -> None:
         for a in self.agents.values():
