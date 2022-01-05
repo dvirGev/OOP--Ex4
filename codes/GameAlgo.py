@@ -127,7 +127,6 @@ class gameAlgo():
                 a.priorty = prity
                 path = tempList[prity][1][1][1]
                 path.append(choise.dest)
-                print(path)
                 if len(path) > 1:
                     a.nextStations = path[1]
                 else:
@@ -139,7 +138,6 @@ class gameAlgo():
         a.priorty = prity
         path = tempList[prity][1][1][1]
         path.append(choise.dest)
-        print(path)
         if len(path) > 1:
             a.nextStations = path[1]
         else:
@@ -152,7 +150,6 @@ class gameAlgo():
     def CMD(self, client: Client) -> None:
         for a in self.agents.values():
             if a.dest == -1 and a.nextStations != None:
-                print(a.nextStations)
                 client.choose_next_edge(
                     '{"agent_id":'+str(a.id)+', "next_node_id":'+str(a.nextStations)+'}')
                 a.nextStations = None

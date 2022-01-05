@@ -1,14 +1,14 @@
 import json
 import subprocess
 import sys
-
+import time
 from GameAlgo import gameAlgo
 from client import Client
 from GUI import GUI
 from classes import agent
 ###### python codes./Ex4.py
 """sys.argv[1]"""
-subprocess.Popen(['powershell.exe', f'java -jar Ex4_Server_v0.0.jar {13}'])
+subprocess.Popen(['powershell.exe', f'java -jar Ex4_Server_v0.0.jar {sys.argv[1]}'])
 # default port
 PORT = 6666
 # server host (default localhost 127.0.0.1)
@@ -36,5 +36,5 @@ while client.is_running() == 'true':
     game.CMD(client)
     client.move()  
     gui.draw()
-    #wait(150)
+    time.sleep()
 
