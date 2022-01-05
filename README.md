@@ -98,7 +98,7 @@ The main advantage is that it is very dynamic, which means that if a Pokemon is 
 ----
 ## Algorithms Results
 
-![image](https://user-images.githubusercontent.com/92378800/148292337-c2237966-a013-4416-8107-da081a6aa194.png)
+![image](https://user-images.githubusercontent.com/92378800/148293167-13f13e54-9be4-41b1-97fd-2a3c8315b09f.png)
 
 ----
 ## How to run the project
