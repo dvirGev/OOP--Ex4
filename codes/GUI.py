@@ -58,7 +58,7 @@ class GUI():
         buttonColor = (28, 172, 74)
         buttonWidth = 70
         self.exit_button = Button(buttonColor, 2, 2, buttonWidth, 20, 'EXIT')
-        self.muzic_button = Button(buttonColor, 2+buttonWidth, 2, buttonWidth, 20, 'MUZIC')
+        self.music_button = Button(buttonColor, 2+buttonWidth, 2, buttonWidth, 20, 'MUSIC')
         self.move_button = Button(buttonColor, 2+2*buttonWidth, 2, buttonWidth, 20, 'MOVES')
         self.time_button = Button(buttonColor, 2+3*buttonWidth, 2, buttonWidth, 20, 'TIME')
         self.grade_button = Button(buttonColor, 2+4*buttonWidth, 2, buttonWidth, 20, 'GRADE')
@@ -85,7 +85,7 @@ class GUI():
                 exit(0)
                 return False
             elif event.type == pygame.MOUSEBUTTONDOWN:
-                    if self.muzic_button.isOver(pygame.mouse.get_pos()):
+                    if self.music_button.isOver(pygame.mouse.get_pos()):
                         if self.isPLay % 2:
                             mixer.music.stop()
                         else:
@@ -150,7 +150,7 @@ class GUI():
             
             self.screen.blit(self.agent_image, (x, y)) 
     def drawButtons(self)->None:
-        self.muzic_button.draw(self.screen, (0,0,0))
+        self.music_button.draw(self.screen, (0,0,0))
         self.exit_button.draw(self.screen, (0,0,0)) 
         data = json.loads(self.client.get_info())["GameServer"]
         self.move_button.text = 'MOVES: ' + str(data['moves'])
