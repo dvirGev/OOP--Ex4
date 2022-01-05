@@ -20,7 +20,7 @@ Our mission is to maximize the overall sum of weights of the “grabbed” pokem
 ### 1.DiGraph - contains dictionary of all the nodes in the graph(Node) and all the edges() and the mc(changing in the graph).
 
 ### 2.GraphAlgo - this class get DiGraph and can calculate the next list of algorithms:
-             -A shorted path between 2 verticals.
+             **A shorted path between 2 verticals.
              *The ideal center of the graph.
              *Tsp problem for a group of verticals in the graph
              *load graph from json file.
