@@ -8,6 +8,11 @@ epsilon = 0.0000000001
 
 
 class gameAlgo():
+    """
+    game algo is charge of the game algorithm and the cmd
+    #param None
+    @return void
+    """
     def __init__(self) -> None:
         self.pokemons = []
         self.agents = {}
@@ -16,6 +21,13 @@ class gameAlgo():
         self.counter = 0
 
     def update(self, pokemons=None, agents=None, graph=None) -> None:
+        """
+        update the details about the agents and Pokémons in the graph.
+        @param1: pokemons
+        @param2: agents
+        @param2: graph
+        @return: void
+        """
         if agents != None:
             agents_obj = json.loads(agents)
             for age in agents_obj['Agents']:
@@ -49,6 +61,11 @@ class gameAlgo():
                 self.pokemons.append(p)
 
     def pokemon_src_dest(self, pok: pokemon) -> None:
+        """
+        calculate which edge the pokemon standes(src, dest) and change it in the pokemon fields
+        @param: pokemon
+        @return: void
+        """
         for node1 in self.graph.nodes:
             for node2 in self.graph.nodes:
                 dis1 = self.distanceNodes(
@@ -65,11 +82,23 @@ class gameAlgo():
                     return
 
     def distanceNodes(self, node1: Node, node2: Node):
+        """
+        calculate the distance between two verticals.
+        @param1: Node
+        @param2: Node
+        @return: long float
+        """
         dis = math.sqrt(pow(node1.location[0] - node2.location[0],
                         2) + pow(node1.location[1] - node2.location[1], 2))
         return dis
 
     def distancePokNode(self, node1: Node, pok: pokemon):
+        """
+        calculate the distance between pokemon and verticals.
+        @param1: Node
+        @param2: pokemon
+        @return: long float
+        """
         dis = math.sqrt(
             pow(node1.location[0] - pok.pos[0], 2) + pow(node1.location[1] - pok.pos[1], 2))
         return dis
@@ -115,7 +144,7 @@ class gameAlgo():
 
     def CMD(self, client: Client) -> None:
         for a in self.agents.values():
-            if a.dest == -1 and len(a.stations) !=  0:
+            if a.dest == -1 and len(a.stations) != 0:
                 print(f"a = {a}\n src = {a.src}")
                 client.choose_next_edge(
                     '{"agent_id":'+str(a.id)+', "next_node_id":'+str(a.stations[0])+'}')
