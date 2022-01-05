@@ -1,6 +1,7 @@
 
  # POKEMON GAME – PYTHON
 [cover-pokemon-preview](https://user-images.githubusercontent.com/92378800/147971487-05efa702-1371-4c9d-bf7a-ef3a6910a7b9.png)
+![image](https://user-images.githubusercontent.com/92378800/148246637-1c7fe8ac-5531-4a0b-8d05-651b6a56c333.png)
 
 Written by Dvir Biton , Dvir Gev and Danielle Musai.
 
