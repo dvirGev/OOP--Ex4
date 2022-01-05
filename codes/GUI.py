@@ -55,11 +55,13 @@ class GUI():
             self.min_y = min(self.min_y, y)
             self.max_x = max(self.max_x, x)
             self.max_y = max(self.max_y, y)
-        
-        self.exit_button = Button((28, 172, 74), 2, 2, 70, 20, 'EXIT')
-        self.muzic_button = Button((28, 172, 74), 72, 2, 70, 20, 'MUZIC')
-        self.move_button = Button((28, 172, 74), 142, 2, 70, 20, 'MOVES')
-        self.grade_button = Button((28, 172, 74), 212, 2, 70, 20, 'GRADE')
+        buttonColor = (28, 172, 74)
+        buttonWidth = 70
+        self.exit_button = Button(buttonColor, 2, 2, buttonWidth, 20, 'EXIT')
+        self.muzic_button = Button(buttonColor, 2+buttonWidth, 2, buttonWidth, 20, 'MUZIC')
+        self.move_button = Button(buttonColor, 2+2*buttonWidth, 2, buttonWidth, 20, 'MOVES')
+        self.time_button = Button(buttonColor, 2+3*buttonWidth, 2, buttonWidth, 20, 'TIME')
+        self.grade_button = Button(buttonColor, 2+4*buttonWidth, 2, buttonWidth, 20, 'GRADE')
         self.isPLay = 0
     def scale(self, data, min_screen, max_screen, min_data, max_data):
         """
@@ -150,9 +152,12 @@ class GUI():
     def drawButtons(self)->None:
         self.muzic_button.draw(self.screen, (0,0,0))
         self.exit_button.draw(self.screen, (0,0,0)) 
-        self.move_button.text = 'MOVES: ' + str(json.loads(self.client.get_info())["GameServer"]["moves"])
+        data = json.loads(self.client.get_info())["GameServer"]
+        self.move_button.text = 'MOVES: ' + str(data['moves'])
         self.move_button.draw(self.screen, (0,0,0))
-        self.grade_button.text = 'GRADE: ' + str(json.loads(self.client.get_info())["GameServer"]["grade"])
+        self.time_button.text = 'TIME: ' + str(int(float(self.client.time_to_end()) / 1000))
+        self.time_button.draw(self.screen, (0,0,0))
+        self.grade_button.text = 'GRADE: ' + str(data["grade"])
         self.grade_button.draw(self.screen, (0,0,0))
             
 class Button():
