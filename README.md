@@ -14,10 +14,11 @@ The pokemons are located on the graph’s (directed) edges, therefore, the agent
 As we can see we are given a specific and limited time and moves ,clearly the moves are dependents on the distance of the pokemons from the agents.(edges and weights).
 Our mission is to maximize the overall sum of weights of the “grabbed” pokemons.
 
-
+----
 ## classes
+----
 ### 1.DiGraph - contains dictionary of all the nodes in the graph(Node) and all the edges() and the mc(changing in the graph).
-----------
+
 ### 2.GraphAlgo - this class get DiGraph and can calculate the next list of algorithms:
              *A shorted path between 2 verticals.
              *The ideal center of the graph.
@@ -25,7 +26,7 @@ Our mission is to maximize the overall sum of weights of the “grabbed” pokem
              *load graph from json file.
              *save the graph to new json file.
              *plot the graph(crate visual display of the graph(GUI)).
------
+
 ### 3.Node - this class save information about each vertical:
          *its exclusive id.
          *location information.
@@ -60,19 +61,22 @@ Our mission is to maximize the overall sum of weights of the “grabbed” pokem
          *login
          *stop connection
 
-### 6.classes include: ## agent & pokemon
-
+### 6.classes include: 
+        *agent & pokemon
+-----
 ## Gui
 
 ![image](https://user-images.githubusercontent.com/92378800/148246637-1c7fe8ac-5531-4a0b-8d05-651b6a56c333.png)
-
+-----
 ## Algorithms
-
+-----
 ## UML
 
 ![image](https://user-images.githubusercontent.com/92378800/148247697-b445d322-1915-443b-a8a2-eecd0fc4496c.png)
-
+----
 ## Algorithms Results
+
+----
 ## How to run the project
 open the floder of the project and write this line in the terminal command:
 python codes./Ex4.py 11(11 is one of the cases)
