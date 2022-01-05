@@ -108,42 +108,54 @@ class gameAlgo():
         time = (distance[0] / a.speed)
         return (time, distance)
 
-    def allocateAgen(self, a: agent, prity:int) -> None:
-        ans = (float('inf'), None)
-        choisePokemon = None
+    def allocateAgen(self, a: agent, prity = 0) -> None:
+        tempList = []
         for p in self.pokemons:
             cal = self.calc(a,p)
-            if cal[0] < ans[0]:
-                ans = cal
-                choisePokemon = p
-        if choisePokemon.agent != None:
-            enemy = choisePokemon.agent
-            if ans[0] < enemy.time:
-                choisePokemon.agent = a
-                a.time = ans[0]
-                stations = ans[1]
-                if len(stations) > 2:
-                    a.nextStations = stations[2]
-                else:
-                    a.nextStations = stations[1]
-                self.allocateAgen(enemy)
+            tempList.append((p, cal))
+        tempList.sort(key = lambda x: x[1][0])
+        choise = tempList[prity][0]
+        time = tempList[prity][1][0]
+        if choise.agent != None:
+            enemy = choise.agent
+            if time > enemy.time:
+                self.allocateAgen(a, prity+1)
+                return
             else:
-                
+                choise.agent = a
+                a.time = time
+                a.priorty = prity
+                path = tempList[prity][1][1][1]
+                path.append(choise.dest)
+                print(path)
+                if len(path) > 1:
+                    a.nextStations = path[1]
+                else:
+                    a.nextStations = path[0]
+                self.allocateAgen(enemy, enemy.priorty+1)
+                return
+        choise.agent = a
+        a.time = time
+        a.priorty = prity
+        path = tempList[prity][1][1][1]
+        path.append(choise.dest)
+        print(path)
+        if len(path) > 1:
+            a.nextStations = path[1]
+        else:
+            a.nextStations = path[0]
         
-            
-
-
     def allocateAllpokemon(self) -> None:
         for a in self.agents.values():
             self.allocateAgen(a)
 
     def CMD(self, client: Client) -> None:
         for a in self.agents.values():
-            if a.dest == -1 and len(a.stations) != 0:
-                print(f"a = {a}\n src = {a.src}")
+            if a.dest == -1 and a.nextStations != None:
+                print(a.nextStations)
                 client.choose_next_edge(
-                    '{"agent_id":'+str(a.id)+', "next_node_id":'+str(a.stations[0])+'}')
-                a.stations.pop(0)
+                    '{"agent_id":'+str(a.id)+', "next_node_id":'+str(a.nextStations)+'}')
+                a.nextStations = None
 
     def shortest_path(self, id1: int, id2: int) -> (float, list):
         """

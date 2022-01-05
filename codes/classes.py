@@ -12,6 +12,7 @@ class agent:
         
         self.nextStations = None
         self.time = float('inf')
+        self.priorty = 0
     def update(self, data: dict) -> None:
         self.value = float(data['value'])
         self.src = int(data['src'])
@@ -22,6 +23,8 @@ class agent:
         for n in xyz:
             self.pos.append(float(n))
         self.time = float('inf')
+        self.priorty = 0
+        
 class pokemon:
     def __init__(self, data:dict) -> None:
         self.value = data['value']
@@ -33,7 +36,8 @@ class pokemon:
         self.src = None
         self.dest = None
         self.agent = None
-    
+    def __repr__(self) -> str:
+        return str((self.src, self.dest))
     
 
         
