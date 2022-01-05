@@ -85,6 +85,9 @@ class gameAlgo():
                         pok.dest = dest
                         return
     def isEdge(self, src, dest)->bool:
+        """
+        return is their are edge between src and dest
+        """
         return (src, dest) in self.graph.edges
     def distanceNodes(self, node1: Node, node2: Node):
         """
@@ -109,30 +112,42 @@ class gameAlgo():
         return dis
 
     def calc(self, a: agent, p: pokemon):
+        """
+        calculate the distance between the agent and the pokemon
+        @param1: agent
+        @param2: pokemon
+        @return: (time: float, distance: tuple)
+        """
         if a.src == p.src:
             return (0,(0,[]))
         distance = self.shortest_path(a.src, p.src)
         time = (distance[0] / a.speed)
         return (time, distance)
 
-    def allocateAgen(self, a: agent, prity = 0) -> None:
+    def allocateAgen(self, a: agent, priority = 0) -> None:
+        """
+        alloctae for every agent match pokemon
+        @param1: agent
+        @param2: int
+        @return: void
+        """
         tempList = []
         for p in self.pokemons:
             cal = self.calc(a,p)
             tempList.append((p, cal))
         tempList.sort(key = lambda x: x[1][0])
-        choise = tempList[prity][0]
-        time = tempList[prity][1][0]
+        choise = tempList[priority][0]
+        time = tempList[priority][1][0]
         if choise.agent != None:
             enemy = choise.agent
             if time > enemy.time:
-                self.allocateAgen(a, prity+1)
+                self.allocateAgen(a, priority + 1)
                 return
             else:
                 choise.agent = a
                 a.time = time
-                a.priorty = prity
-                path = tempList[prity][1][1][1]
+                a.priorty = priority
+                path = tempList[priority][1][1][1]
                 path.append(choise.dest)
                 if len(path) > 1:
                     a.nextStations = path[1]
@@ -142,8 +157,8 @@ class gameAlgo():
                 return
         choise.agent = a
         a.time = time
-        a.priorty = prity
-        path = tempList[prity][1][1][1]
+        a.priorty = priority
+        path = tempList[priority][1][1][1]
         path.append(choise.dest)
         # print(path)
         if len(path) > 1:
@@ -152,11 +167,17 @@ class gameAlgo():
             a.nextStations = path[0]
         
     def allocateAllagent(self) -> None:
+        """
+        for every agent call to allocateAgen func
+        """
         for a in self.agents.values():
             if a.dest == -1:
                 self.allocateAgen(a)
 
     def CMD(self, client: Client) -> None:
+        """
+        cmd func
+        """
         for a in self.agents.values():
             if a.dest == -1 and a.nextStations != None:
                 client.choose_next_edge(
