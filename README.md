@@ -17,10 +17,11 @@ Our mission is to maximize the overall sum of weights of the “grabbed” pokem
 ---
 ## classes
 
-### 1.DiGraph - contains dictionary of all the nodes in the graph(Node) and all the edges() and the mc(changing in the graph).
+### 1.DiGraph - 
+            contains dictionary of all the nodes in the graph(Node) and all the edges() and the mc(changing in the graph).
 
 ### 2.GraphAlgo - this class get DiGraph and can calculate the next list of algorithms:
-             **A shorted path between 2 verticals.
+             *A shorted path between 2 verticals.
              *The ideal center of the graph.
              *Tsp problem for a group of verticals in the graph
              *load graph from json file.
@@ -28,59 +29,61 @@ Our mission is to maximize the overall sum of weights of the “grabbed” pokem
              *plot the graph(crate visual display of the graph(GUI)).
 
 ### 3.Node - this class save information about each vertical:
-         *its exclusive id.
-         *location information.
-         *tag(using for the algorithms).
-         *dictionary for all the edges from this node to another.
-         *dictionary for all the edges that getting to this node.
+             *its exclusive id.
+             *location information.
+             *tag(using for the algorithms).
+             *dictionary for all the edges from this node to another.
+             *dictionary for all the edges that getting to this node.
 
 ### 4.gameAlgo- this class is charge of the game algorithm and the cmd
-           *update the details about the agents and Pokemons in the graph
-           *pokemon_src_dest-calculate which edge the pokemon standes(src, dest).
-           *isEdge-return if their are edge between src and dest
-           *distanceNodes-calculate the distance between two verticals.
-           *distancePokNode-  calculate the distance between pokemon and verticals.
-           *calc- calculate the distance between the agent and the pokemon.
-           *allocateAgen-  alloctae for every agent match pokemon.
-           *allocateAllagent- for every agent call to allocateAgen func.
-           *CMD
-           *the shortest path between 2 verticals using Dijkstra's Algorithm.
+            *update the details about the agents and Pokemons in the graph
+            *pokemon_src_dest-calculate which edge the pokemon standes(src, dest).
+            *isEdge-return if their are edge between src and dest
+            *distanceNodes-calculate the distance between two verticals.
+            *distancePokNode-  calculate the distance between pokemon and verticals.
+            *calc- calculate the distance between the agent and the pokemon.
+            *allocateAgen-  alloctae for every agent match pokemon.
+            *allocateAllagent- for every agent call to allocateAgen func.
+            *CMD
+            *the shortest path between 2 verticals using Dijkstra's Algorithm.
 
 ### 5.client-*start connection
-         *send messege- to start a new connection to the game server
-         *get agents
-         *adding an agent
-         *getting a graph
-         *get info- the current game information
-         *get the current pokemon state.
-         *running the project - check if the game still running.
-         *time to end in mili-sec.
-         *starting the game 
-         *move
-         *choose next edge means choosing the next destination for a specific agent.
-         *login
-         *stop connection
+           *send messege- to start a new connection to the game server
+           *get agents
+           *adding an agent
+           *getting a graph
+           *get info- the current game information
+           *get the current pokemon state.
+           *running the project - check if the game still running.
+           *time to end in mili-sec.
+           *starting the game 
+           *move
+           *choose next edge means choosing the next destination for a specific agent.
+           *login
+           *stop connection
 
 ### 6.classes include: 
-        *agent & pokemon
--
+          *agent & pokemon
+
+
 ## GUI
 This classes generate a windows that show the game.
+
 We have the exit and music buttoms also a results of the moves ,time and grade. 
+
+
 ![image](https://user-images.githubusercontent.com/92378800/148246637-1c7fe8ac-5531-4a0b-8d05-651b6a56c333.png)
--
+
 ## Algorithms
 
 The algorithm is very simple.
 After all, the goal of the game is to maximize the overall sum of weights of the "grabbed" pokemons.
 The solution is simple. To each agent we match Pokemon without saving anything and as soon as we find a match between the two of them we send to the next station.
 The main advantage is that it is very dynamic, which means that if a Pokemon is created close to it, the agent simply changes the route again to catch the same Pokemon.
--
+---
 ## UML
 
 ![image](https://user-images.githubusercontent.com/92378800/148247697-b445d322-1915-443b-a8a2-eecd0fc4496c.png)
--
-## Algorithms Results
 
 ----
 ## How to run the project
