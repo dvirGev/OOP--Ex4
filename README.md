@@ -1,8 +1,6 @@
 
  # POKEMON GAME – PYTHON
-[cover-pokemon-preview](https://user-images.githubusercontent.com/92378800/147971487-05efa702-1371-4c9d-bf7a-ef3a6910a7b9.png)
-![image](https://user-images.githubusercontent.com/92378800/148246637-1c7fe8ac-5531-4a0b-8d05-651b6a56c333.png)
-
+![image](https://user-images.githubusercontent.com/92378800/148246982-aff9b0c4-3a54-4dae-81a7-7603a080096e.png)
 Written by Dvir Biton , Dvir Gev and Danielle Musai.
 
 ## PROJECT EXPLANATION
@@ -18,7 +16,7 @@ Our mission is to maximize the overall sum of weights of the “grabbed” pokem
 
 
 ##Gui
-
+![image](https://user-images.githubusercontent.com/92378800/148246637-1c7fe8ac-5531-4a0b-8d05-651b6a56c333.png)
 
 ##Algorithms
 ##UML
