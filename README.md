@@ -16,7 +16,7 @@ Our mission is to maximize the overall sum of weights of the “grabbed” pokem
 
 ----
 ## classes
-----
+
 ### 1.DiGraph - contains dictionary of all the nodes in the graph(Node) and all the edges() and the mc(changing in the graph).
 
 ### 2.GraphAlgo - this class get DiGraph and can calculate the next list of algorithms:
