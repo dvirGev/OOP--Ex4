@@ -14,11 +14,11 @@ The pokemons are located on the graph’s (directed) edges, therefore, the agent
 As we can see we are given a specific and limited time and moves ,clearly the moves are dependents on the distance of the pokemons from the agents.(edges and weights).
 Our mission is to maximize the overall sum of weights of the “grabbed” pokemons.
 
-______
+----
 ## classes
 
 ### 1.DiGraph - contains dictionary of all the nodes in the graph(Node) and all the edges() and the mc(changing in the graph).
----
+
 ### 2.GraphAlgo - this class get DiGraph and can calculate the next list of algorithms:
              *A shorted path between 2 verticals.
              *The ideal center of the graph.
