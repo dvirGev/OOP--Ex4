@@ -4,7 +4,7 @@ from DiGraph import *
 #from GraphAlgo import GraphAlgo
 from classes import *
 from client import Client
-epsilon = 0.0000000001
+epsilon = 0.00000000001
 
 
 class gameAlgo():
@@ -73,14 +73,19 @@ class gameAlgo():
                 dis2 = (self.distancePokNode(
                     self.graph.nodes[node1], pok) + self.distancePokNode(self.graph.nodes[node2], pok))
                 if abs(dis1 - dis2) <= epsilon:
+                    src = dest = None
                     if pok.type == -1:
-                        pok.src = min(node1, node2)
-                        pok.dest = max(node1, node2)
+                        src = min(node1, node2)
+                        dest = max(node1, node2)
                     else:
-                        pok.src = max(node1, node2)
-                        pok.dest = min(node1, node2)
-                    return
-
+                        src = max(node1, node2)
+                        dest = min(node1, node2)
+                    if self.isEdge(src, dest):
+                        pok.src = src
+                        pok.dest = dest
+                        return
+    def isEdge(self, src, dest)->bool:
+        return (src, dest) in self.graph.edges
     def distanceNodes(self, node1: Node, node2: Node):
         """
         calculate the distance between two verticals.
@@ -104,6 +109,8 @@ class gameAlgo():
         return dis
 
     def calc(self, a: agent, p: pokemon):
+        if a.src == p.src:
+            return (0,(0,[]))
         distance = self.shortest_path(a.src, p.src)
         time = (distance[0] / a.speed)
         return (time, distance)
@@ -127,6 +134,7 @@ class gameAlgo():
                 a.priorty = prity
                 path = tempList[prity][1][1][1]
                 path.append(choise.dest)
+                # print(path)
                 if len(path) > 1:
                     a.nextStations = path[1]
                 else:
@@ -138,6 +146,7 @@ class gameAlgo():
         a.priorty = prity
         path = tempList[prity][1][1][1]
         path.append(choise.dest)
+        # print(path)
         if len(path) > 1:
             a.nextStations = path[1]
         else:
@@ -145,7 +154,8 @@ class gameAlgo():
         
     def allocateAllpokemon(self) -> None:
         for a in self.agents.values():
-            self.allocateAgen(a)
+            if a.dest == -1:
+                self.allocateAgen(a)
 
     def CMD(self, client: Client) -> None:
         for a in self.agents.values():

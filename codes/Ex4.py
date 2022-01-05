@@ -36,5 +36,5 @@ while client.is_running() == 'true':
     game.CMD(client)
     client.move()  
     gui.draw()
-    time.sleep()
+    time.sleep(0.01)
 
