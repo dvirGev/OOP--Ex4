@@ -1,6 +1,9 @@
 
  # POKEMON GAME – PYTHON
 ![image](https://user-images.githubusercontent.com/92378800/148246982-aff9b0c4-3a54-4dae-81a7-7603a080096e.png)
+![image](https://user-images.githubusercontent.com/92378800/148247337-e49eccfd-927d-4ccd-a2d7-795f2bf2d650.png)
+
+
 Written by Dvir Biton , Dvir Gev and Danielle Musai.
 
 ## PROJECT EXPLANATION
