@@ -151,7 +151,7 @@ class gameAlgo():
         else:
             a.nextStations = path[0]
         
-    def allocateAllpokemon(self) -> None:
+    def allocateAllagent(self) -> None:
         for a in self.agents.values():
             if a.dest == -1:
                 self.allocateAgen(a)

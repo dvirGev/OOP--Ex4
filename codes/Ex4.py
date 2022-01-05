@@ -32,7 +32,7 @@ gui = GUI(game, client)
 client.start()
 while client.is_running() == 'true':
     game.update(client.get_pokemons(), client.get_agents())
-    game.allocateAllpokemon()
+    game.allocateAllagent()
     game.CMD(client)
     client.move()  
     gui.draw()
