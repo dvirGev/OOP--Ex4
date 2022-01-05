@@ -32,11 +32,34 @@ Our mission is to maximize the overall sum of weights of the “grabbed” pokem
 *dictionary for all the edges from this node to another.
 *dictionary for all the edges that getting to this node.
 
-4.gameAlgo
+4.gameAlgo- this class is charge of the game algorithm and the cmd
+*update the details about the agents and Pokemons in the graph
+*pokemon_src_dest-calculate which edge the pokemon standes(src, dest).
+*isEdge-return if their are edge between src and dest
+*distanceNodes-calculate the distance between two verticals.
+*distancePokNode-  calculate the distance between pokemon and verticals.
+*calc- calculate the distance between the agent and the pokemon.
+*allocateAgen-  alloctae for every agent match pokemon.
+*allocateAllagent- for every agent call to allocateAgen func.
+*CMD
+*the shortest path between 2 verticals using Dijkstra's Algorithm.
 
-5.client
+5.client-*start connection
+         *send messege- to start a new connection to the game server
+         *get agents
+         *adding an agent
+         *getting a graph
+         *get info- the current game information
+         *get the current pokemon state.
+         *running the project - check if the game still running.
+         *time to end in mili-sec.
+         *starting the game 
+         *move
+         *choose next edge means choosing the next destination for a specific agent.
+         *login
+         *stop connection
 
-6.classes include agent and pokemon
+6.classes include: ## agent & pokemon
 
 ## Gui
 
