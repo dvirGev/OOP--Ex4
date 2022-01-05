@@ -174,6 +174,16 @@ class gameAlgo():
             if a.dest == -1:
                 self.allocateAgen(a)
 
+    def myMove(self, client: Client):
+        if len(self.pokemons) != 0:
+            for p in self.pokemons:
+                print(p.pos[0])
+                print(p.agent[0])
+                x = math.pow(p.pos[0] - p.agent.pos[0],2)
+                y = math.pow(p.pos[1] - p.agent.pos[1],2)
+                d = math.sqrt(x + y)
+                if d < epsilon:
+                    client.move()
     def CMD(self, client: Client) -> None:
         """
         cmd func
@@ -183,6 +193,7 @@ class gameAlgo():
                 client.choose_next_edge(
                     '{"agent_id":'+str(a.id)+', "next_node_id":'+str(a.nextStations)+'}')
                 a.nextStations = None
+        self.myMove(client)
 
     def shortest_path(self, id1: int, id2: int) -> (float, list):
         """
