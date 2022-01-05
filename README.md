@@ -98,7 +98,8 @@ The main advantage is that it is very dynamic, which means that if a Pokemon is 
 ----
 ## How to run the project
 Open the floder of the project and write this line in the terminal command:
-python codes./Ex4.py 11(11 is one of the cases)
+
+* python codes./Ex4.py 11(11 is one of the cases)
 
 ![image](https://user-images.githubusercontent.com/92378800/148261828-9a3d3395-09b4-4c0e-a500-e3ff06c1ad0c.png)
 
