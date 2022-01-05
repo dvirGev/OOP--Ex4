@@ -96,6 +96,11 @@ The main advantage is that it is very dynamic, which means that if a Pokemon is 
 ![image](https://user-images.githubusercontent.com/92378800/148247697-b445d322-1915-443b-a8a2-eecd0fc4496c.png)
 
 ----
+## Algorithms Results
+
+![image](https://user-images.githubusercontent.com/92378800/148292337-c2237966-a013-4416-8107-da081a6aa194.png)
+
+----
 ## How to run the project
 Open the floder of the project and write this line in the terminal command:
 
