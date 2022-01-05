@@ -1,9 +1,10 @@
 
- # POKEMON GAME – PYTHON
+# OOP--Ex4
+# POKEMON GAME – PYTHON
 ![image](https://user-images.githubusercontent.com/92378800/148260320-c740a7f5-ddf1-498e-bd29-94911c4e2d84.png)
 
 
-Written by Dvir Biton , Dvir Gev and Danielle Musai.
+## Written by Dvir Biton , Dvir Gev and Danielle Musai.
 
 ## PROJECT EXPLANATION
 
@@ -14,17 +15,45 @@ As we can see we are given a specific and limited time and moves ,clearly the mo
 Our mission is to maximize the overall sum of weights of the “grabbed” pokemons.
 
 
-classes
+## classes
+1.DiGraph - contains dictionary of all the nodes in the graph(Node) and all the edges() and the mc(changing in the graph).
 
+2.GraphAlgo - this class get DiGraph and can calculate the next list of algorithms:
+*A shorted path between 2 verticals.
+*The ideal center of the graph.
+*Tsp problem for a group of verticals in the graph
+*load graph from json file.
+*save the graph to new json file.
+*plot the graph(crate visual display of the graph(GUI)).
+3.Node - this class save information about each vertical:
+*its exclusive id.
+*location information.
+*tag(using for the algorithms).
+*dictionary for all the edges from this node to another.
+*dictionary for all the edges that getting to this node.
 
-##Gui
+4.gameAlgo
+
+5.client
+
+6.classes include agent and pokemon
+
+## Gui
 
 ![image](https://user-images.githubusercontent.com/92378800/148246637-1c7fe8ac-5531-4a0b-8d05-651b6a56c333.png)
 
-Algorithms
+## Algorithms
 
-#UML
+## UML
 
 ![image](https://user-images.githubusercontent.com/92378800/148247697-b445d322-1915-443b-a8a2-eecd0fc4496c.png)
 
-##Algorithms Results
+## Algorithms Results
+## How to run the project
+open the floder of the project and write this line in the terminal command:
+python codes./Ex4.py 11(11 is one of the cases)
+
+![image](https://user-images.githubusercontent.com/92378800/148261828-9a3d3395-09b4-4c0e-a500-e3ff06c1ad0c.png)
+
+
+
