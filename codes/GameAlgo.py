@@ -134,7 +134,6 @@ class gameAlgo():
                 a.priorty = prity
                 path = tempList[prity][1][1][1]
                 path.append(choise.dest)
-                # print(path)
                 if len(path) > 1:
                     a.nextStations = path[1]
                 else:

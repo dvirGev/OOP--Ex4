@@ -31,7 +31,7 @@ game.update(client.get_pokemons(), client.get_agents(), client.get_graph())
 gui = GUI(game, client)
 client.start()
 while client.is_running() == 'true':
-    game.update(client.get_pokemons(), client.get_agents(), client.get_graph())
+    game.update(client.get_pokemons(), client.get_agents())
     game.allocateAllpokemon()
     game.CMD(client)
     client.move()  
