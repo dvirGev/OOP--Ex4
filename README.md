@@ -21,6 +21,7 @@ Our mission is to maximize the overall sum of weights of the “grabbed” pokem
             contains dictionary of all the nodes in the graph(Node) and all the edges() and the mc(changing in the graph).
 
 ### 2.GraphAlgo - this class get DiGraph and can calculate the next list of algorithms:
+
              *A shorted path between 2 verticals.
              *The ideal center of the graph.
              *Tsp problem for a group of verticals in the graph
@@ -29,6 +30,7 @@ Our mission is to maximize the overall sum of weights of the “grabbed” pokem
              *plot the graph(crate visual display of the graph(GUI)).
 
 ### 3.Node - this class save information about each vertical:
+
              *its exclusive id.
              *location information.
              *tag(using for the algorithms).
@@ -36,6 +38,7 @@ Our mission is to maximize the overall sum of weights of the “grabbed” pokem
              *dictionary for all the edges that getting to this node.
 
 ### 4.gameAlgo- this class is charge of the game algorithm and the cmd
+
             *update the details about the agents and Pokemons in the graph
             *pokemon_src_dest-calculate which edge the pokemon standes(src, dest).
             *isEdge-return if their are edge between src and dest
@@ -48,6 +51,7 @@ Our mission is to maximize the overall sum of weights of the “grabbed” pokem
             *the shortest path between 2 verticals using Dijkstra's Algorithm.
 
 ### 5.client-*start connection
+
            *send messege- to start a new connection to the game server
            *get agents
            *adding an agent
@@ -63,6 +67,7 @@ Our mission is to maximize the overall sum of weights of the “grabbed” pokem
            *stop connection
 
 ### 6.classes include: 
+
           *agent & pokemon
 
 
