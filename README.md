@@ -14,7 +14,7 @@ The pokemons are located on the graph’s (directed) edges, therefore, the agent
 As we can see we are given a specific and limited time and moves ,clearly the moves are dependents on the distance of the pokemons from the agents.(edges and weights).
 Our mission is to maximize the overall sum of weights of the “grabbed” pokemons.
 
-----
+-
 ## classes
 
 ### 1.DiGraph - contains dictionary of all the nodes in the graph(Node) and all the edges() and the mc(changing in the graph).
@@ -63,13 +63,14 @@ Our mission is to maximize the overall sum of weights of the “grabbed” pokem
 
 ### 6.classes include: 
         *agent & pokemon
------
-## Gui
+-
+## GUI
 This classes generate a windows that show the game.
 We have the exit and music buttoms also a results of the moves ,time and grade. 
 ![image](https://user-images.githubusercontent.com/92378800/148246637-1c7fe8ac-5531-4a0b-8d05-651b6a56c333.png)
------
+-
 ## Algorithms
+
 The algorithm is very simple.
 After all, the goal of the game is to maximize the overall sum of weights of the "grabbed" pokemons.
 The solution is simple. To each agent we match Pokemon without saving anything and as soon as we find a match between the two of them we send to the next station.
@@ -78,7 +79,7 @@ The main advantage is that it is very dynamic, which means that if a Pokemon is 
 ## UML
 
 ![image](https://user-images.githubusercontent.com/92378800/148247697-b445d322-1915-443b-a8a2-eecd0fc4496c.png)
-----
+-
 ## Algorithms Results
 
 ----
