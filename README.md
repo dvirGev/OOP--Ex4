@@ -82,7 +82,9 @@ The algorithm is very simple.
 After all, the goal of the game is to maximize the overall sum of weights of the "grabbed" pokemons.
 The solution is simple. To each agent we match Pokemon without saving anything and as soon as we find a match between the two of them we send to the next station.
 The main advantage is that it is very dynamic, which means that if a Pokemon is created close to it, the agent simply changes the route again to catch the same Pokemon.
-----
+
+
+---
 
 ## UML
 
