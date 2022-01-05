@@ -1,5 +1,7 @@
+from enum import Flag
 import json
 import math
+import time
 from DiGraph import *
 #from GraphAlgo import GraphAlgo
 from classes import *
@@ -75,11 +77,11 @@ class gameAlgo():
                 if abs(dis1 - dis2) <= epsilon:
                     src = dest = None
                     if pok.type == -1:
-                        src = min(node1, node2)
-                        dest = max(node1, node2)
-                    else:
                         src = max(node1, node2)
                         dest = min(node1, node2)
+                    else:
+                        src = min(node1, node2)
+                        dest = max(node1, node2)
                     if self.isEdge(src, dest):
                         pok.src = src
                         pok.dest = dest
@@ -171,19 +173,18 @@ class gameAlgo():
         for every agent call to allocateAgen func
         """
         for a in self.agents.values():
-            if a.dest == -1:
-                self.allocateAgen(a)
-
-    def myMove(self, client: Client):
-        if len(self.pokemons) != 0:
-            for p in self.pokemons:
-                print(p.pos[0])
-                print(p.agent[0])
-                x = math.pow(p.pos[0] - p.agent.pos[0],2)
-                y = math.pow(p.pos[1] - p.agent.pos[1],2)
-                d = math.sqrt(x + y)
-                if d < epsilon:
-                    client.move()
+            self.allocateAgen(a)
+    def sleep(self, client: Client):
+        flag = False
+        for p in self.pokemons:
+            if p.agent != None:
+                if p.src == p.agent.src:
+                    flag = True
+                    break
+        if not flag:
+            time.sleep(0.2)
+        else:
+            time.sleep(0.015)       
     def CMD(self, client: Client) -> None:
         """
         cmd func
@@ -193,8 +194,7 @@ class gameAlgo():
                 client.choose_next_edge(
                     '{"agent_id":'+str(a.id)+', "next_node_id":'+str(a.nextStations)+'}')
                 a.nextStations = None
-        self.myMove(client)
-
+                
     def shortest_path(self, id1: int, id2: int) -> (float, list):
         """
         Returns the shortest path from node id1 to node id2 using Dijkstra's Algorithm
