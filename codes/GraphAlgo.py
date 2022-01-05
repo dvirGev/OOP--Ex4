@@ -3,14 +3,12 @@
 import copy
 
 from GUI import GUI
-from GraphAlgoInterface import GraphAlgoInterface
-from GraphInterface import GraphInterface
 import json
 
 from DiGraph import DiGraph
 
 
-class GraphAlgo(GraphAlgoInterface):
+class GraphAlgo():
     """This class represents AlgoGraph."""
 
     def __init__(self, graph=DiGraph()) -> None:
@@ -24,7 +22,7 @@ class GraphAlgo(GraphAlgoInterface):
             self.dijkstra.MC = self.graph.mc
             self.dijkstra.alg()
 
-    def get_graph(self) -> GraphInterface:
+    def get_graph(self):
         """
         :return: the directed graph on which the algorithm works on.
         """
@@ -171,7 +169,7 @@ class GraphAlgo(GraphAlgoInterface):
 
 
 class Dijkstra:
-    def __init__(self, graph: GraphInterface) -> None:
+    def __init__(self, graph) -> None:
         """
         this class crate the Dijkstra algorithm.
         """
