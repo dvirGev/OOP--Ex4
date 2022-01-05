@@ -65,7 +65,8 @@ Our mission is to maximize the overall sum of weights of the “grabbed” pokem
         *agent & pokemon
 -----
 ## Gui
-
+This classes generate a windows that show the game.
+We have the exit and music buttoms also a results of the moves ,time and grade. 
 ![image](https://user-images.githubusercontent.com/92378800/148246637-1c7fe8ac-5531-4a0b-8d05-651b6a56c333.png)
 -----
 ## Algorithms
