@@ -1,6 +1,8 @@
+import math
 import unittest
 import os
 from GraphAlgo import GraphAlgo
+import classes
 
 
 class TestGraphAlgo(unittest.TestCase):
@@ -94,6 +96,52 @@ class TestDiGraph(unittest.TestCase):
         self.assertEqual(False, graphAlgo.graph.remove_edge(0, 1))
 
     ###GameAlgo###
+    def test_isEdge(self):
+        graphAlgo = GraphAlgo()
+        graphAlgo.load_from_json(r"C:\Users\dvir1\PycharmProjects\OOP--Ex4\data\testGraph.json")
+        src = 1
+        dest = 2
+        check = (src,dest) in graphAlgo.graph.edges
+        self.assertEqual(True,check)
+    def test_distanceNodes(self):
+        graphAlgo = GraphAlgo()
+        graphAlgo.load_from_json(r"C:\Users\dvir1\PycharmProjects\OOP--Ex4\data\testGraph.json")
+        node1 = graphAlgo.graph.nodes[1]
+        node2 = graphAlgo.graph.nodes[2]
+        dis = math.sqrt(pow(node1.location[0] - node2.location[0],
+                            2) + pow(node1.location[1] - node2.location[1], 2))
+        self.assertEqual(0.00437412726888658, dis)
+    def test_distancePokNode(self):
+        graphAlgo = GraphAlgo()
+        graphAlgo.load_from_json(r"C:\Users\dvir1\PycharmProjects\OOP--Ex4\data\testGraph.json")
+        node1 = graphAlgo.graph.nodes[1]
+        dpok = {"value": 5.0,
+                "type": -1,
+                "pos": "35.197656770719604,32.10191878639921,0.0"}
+        pok = classes.pokemon(dpok)
+        dis = math.sqrt(
+            pow(node1.location[0] - pok.pos[0], 2) + pow(node1.location[1] - pok.pos[1], 2))
+        self.assertEqual(0.005681475719369667, dis)
+    def test_calc(self):
+        graphAlgo = GraphAlgo()
+        graphAlgo.load_from_json(r"C:\Users\dvir1\PycharmProjects\OOP--Ex4\data\testGraph.json")
+        dpok = {"value":5.0,
+                "type":-1,
+                "pos":"35.197656770719604,32.10191878639921,0.0"}
+        p = classes.pokemon(dpok)
+        p.src = 5
+        dagent = {"id":0,
+                    "value":0.0,
+                    "src":0,
+                    "dest":1,
+                    "speed":1.0,
+                    "pos":"35.18753053591606,32.10378225882353,0.0"}
+        a= classes.agent(dagent)
+        a.src = 2
+        distance = graphAlgo.shortest_path(a.src, p.src)
+        time = (distance[0] / a.speed)
+        check = (time, distance)
+        self.assertEqual((3.2903057588492706, (3.2903057588492706, [2, 6, 5])), check)
 
 if __name__ == '__main__':
     unittest.main()
