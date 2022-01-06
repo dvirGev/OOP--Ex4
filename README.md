@@ -3,6 +3,8 @@
 # POKEMON GAME – PYTHON
 ![image](https://user-images.githubusercontent.com/92378800/148260320-c740a7f5-ddf1-498e-bd29-94911c4e2d84.png)
 
+![image](https://user-images.githubusercontent.com/92378800/148351388-344d199a-f285-49c2-b19f-62b6376ef919.png)
+
 
 ## Written by Dvir Biton , Dvir Gev and Danielle Musai.
 
