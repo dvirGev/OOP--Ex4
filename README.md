@@ -99,8 +99,8 @@ The main advantage is that it is very dynamic, which means that if a Pokemon is 
 
 ----
 ## Algorithms Results
-
-![image](https://user-images.githubusercontent.com/92378800/148293167-13f13e54-9be4-41b1-97fd-2a3c8315b09f.png)
+you can see the results in our wiki
+https://github.com/dvirGev/OOP--Ex4.wiki.git
 
 ----
 ## How to run the project
