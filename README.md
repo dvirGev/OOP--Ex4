@@ -100,7 +100,7 @@ The main advantage is that it is very dynamic, which means that if a Pokemon is 
 ----
 ## Algorithms Results
 you can see the results in our wiki
-https://github.com/dvirGev/OOP--Ex4.wiki.git
+https://github.com/dvirGev/OOP--Ex4/wiki
 
 ----
 ## How to run the project
